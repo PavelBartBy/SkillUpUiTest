@@ -1,24 +1,22 @@
-package basic_algorithm;
+package basicAlgorithm;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OperationsWithArray {
 
-    public static int sumEvenPositive (int[] array) {
+    public int sumEvenPositive (int[] array) {
 
         int sum = 0;
         for (int j : array) {
-            if (j >= 0) {
-                if (j % 2 == 0) {
-                    sum = sum + j;
-                }
+            if (j >= 0 & j % 2 == 0) {
+                 sum = sum + j;
             }
         }
         return sum;
     }
 
-    public static int maxElement(int[] array){
+    public int maxElement(int[] array){
         int max = 0;
         for (int i:array){
             if (i>=max){
@@ -28,7 +26,7 @@ public class OperationsWithArray {
         return max;
     }
 
-    public static int minElement(int[] array){
+    public int minElement(int[] array){
         int min = 0;
         for (int i:array){
             if (i<min){
@@ -38,14 +36,13 @@ public class OperationsWithArray {
         return min;
     }
 
-    public static List<Integer> lowElements (int[] array){
+    public List<Integer> lowElements (int[] array){
 
         int sum = 0;
         for (int i:array){
             sum=sum+i;
         }
         double amean=(double)sum/array.length;
-        System.out.println(sum+" and "+ array.length);
         System.out.println("The arithmetic mean is " + amean);
         List<Integer> lowelements = new ArrayList<Integer>();
         for (int j:array){

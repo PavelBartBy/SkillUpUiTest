@@ -1,33 +1,39 @@
-package basic_algorithm;
+package basicAlgorithm;
 
 public class Animal {
     String name;
     String color;
-    String animalSize = "small";
+    byte animalSize = 0;
     boolean animalActive = true;
+
     public Animal(){}
+
     public Animal(String name, String color){
         this.name = name;
         this.color = color;
     }
-    public void toEat(){
 
-    }
+    public void toEat(){}
+
     public void toSleep(){
         this.animalActive=false;
     }
+
     public void toMove(){
         if (!this.animalActive){
             this.animalActive=true;
         }
     }
+
     public void makeSound(){
         System.out.println("Don't know my sound");
     }
+
     public void growUp(){
-        this.animalSize = "Big";
+        this.animalSize = 1;
     }
 }
+
 class Dog extends Animal{
 
     @Override
@@ -35,6 +41,7 @@ class Dog extends Animal{
         System.out.println("Gau");
     }
 }
+
 class Cat extends Animal{
     @Override
     public void makeSound(){
