@@ -2,7 +2,7 @@ package basicAlgorithm;
 
 public class DataTypeInfo { //method for studying memory for Data Type in Java. Assignment on first lecture
 
-    public int sizeOf(Class dataType) {
+    public static int sizeOf(Class dataType) {
 
         if (dataType==null) throw new NullPointerException();
         if (dataType==int.class || dataType==Integer.class) return 4;

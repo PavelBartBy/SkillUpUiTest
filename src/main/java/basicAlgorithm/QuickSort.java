@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    public void quickSort (int[] array, int low, int high) {
+    public static void quickSort(int[] array, int low, int high) {
 
         if (array.length==0) {
             return;
@@ -42,7 +42,7 @@ public class QuickSort {
         }
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         int[] x = { 8, 0, 4, 7, 3, 7, 10, 12, -3 };
         System.out.println("Array:");
         System.out.println(Arrays.toString(x));
