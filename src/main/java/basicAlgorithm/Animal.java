@@ -1,19 +1,36 @@
 package basicAlgorithm;
 
-public class Animal {
-    String name;
-    String color;
-    byte animalSize = 0;
-    boolean animalActive = true;
+public abstract class Animal {
+    private String name;
+    private String color;
+    private byte animalSize = 0;
+    private boolean animalActive = true;
 
-    public Animal(){}
+    public String getName() {
+        return name;
+    }
 
-    public Animal(String name, String color){
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public void toEat(){}
+    public byte getAnimalSize() {
+        return animalSize;
+    }
+
+    public void setAnimalSize(byte animalSize) {
+        this.animalSize = animalSize;
+    }
+
+    public abstract void toEat();
 
     public void toSleep(){
         this.animalActive=false;
@@ -25,26 +42,34 @@ public class Animal {
         }
     }
 
-    public void makeSound(){
-        System.out.println("Don't know my sound");
-    }
+    public abstract void makeSound();
 
-    public void growUp(){
-        this.animalSize = 1;
-    }
+    public abstract void growUp();
 }
 
 class Dog extends Animal{
 
     @Override
+    public void toEat() {}
+
+    @Override
     public void makeSound() {
         System.out.println("Gau");
     }
+
+    @Override
+    public void growUp() {}
 }
 
 class Cat extends Animal{
     @Override
+    public void toEat() {}
+
+    @Override
     public void makeSound(){
         System.out.println("Mau");
     }
+
+    @Override
+    public void growUp() {}
 }
