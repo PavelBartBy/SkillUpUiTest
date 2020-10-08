@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigProperties;
 
 import java.io.IOException;
@@ -41,12 +42,11 @@ public class LinkedinLoginPage extends BasePage{
     private WebElement languageSelectorButton;
 
 
-    public LinkedinLoginPage(WebDriver driver) {
+    public LinkedinLoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
+        this.wait = wait;
         PageFactory.initElements(driver, this);
-        assertElementVisible(userElement,5, "Web element not visible ");
-        assertElementVisible(googleSignInButton,5,"Google Sign In not visible");
-
+        assertElementVisible(userElement, "Web element not visible ");
     }
 
     public void googleSignInClick(){
@@ -66,8 +66,23 @@ public class LinkedinLoginPage extends BasePage{
         passwordElement.sendKeys(ConfigProperties.getProperty("pass"));
     }
 
+    public LinkedinHomePage login() throws IOException {
+        this.loginFieldInput();
+        this.passFieldInput();
+        this.clickEnterButton();
+        return new LinkedinHomePage(driver, wait);
+
+    }
+
     public void clickEnterButton(){
         enterButtonElement.click();
+    }
+
+    public boolean isPageLoaded() throws IOException {
+        return getCurrentUrl().equals(ConfigProperties.getProperty("webUrl3"))
+                && getCurrentTitle().equals("Вход в LinkedIn, Войти | LinkedIn");
+
+
     }
 
 

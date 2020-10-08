@@ -3,19 +3,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import pages.LinkedinHomePage;
 import pages.LinkedinLoginPage;
 import utils.ConfigProperties;
 import java.io.IOException;
 
 public class BaseTest {
 
-    WebDriver wdriver;
+    WebDriver driver;
+    WebDriverWait wait;
+    private static final int timeToWaitSec = 10;
     LinkedinLoginPage linkedinLoginPage;
-    LinkedinHomePage linkedinHomePage;
 
     @Parameters("browserName")
     @BeforeMethod
@@ -26,31 +27,22 @@ public class BaseTest {
                 ChromeOptions optionsChrome = new ChromeOptions();
                 optionsChrome.addArguments("--start-maximized");
                 WebDriverManager.chromedriver().setup();
-                wdriver = new ChromeDriver(optionsChrome);
+                driver = new ChromeDriver(optionsChrome);
                 break;
             case "Firefox":
                 WebDriverManager.firefoxdriver().setup();
-                wdriver = new FirefoxDriver();
-                wdriver.manage().window().maximize();
+                driver = new FirefoxDriver();
+                driver.manage().window().maximize();
                 break;
         }
-
+        wait = new WebDriverWait(driver,timeToWaitSec);
         String webUrl = ConfigProperties.getProperty("webUrl3");
-        wdriver.get(webUrl);
-
-        linkedinLoginPage = new LinkedinLoginPage(wdriver);
-        linkedinLoginPage.loginFieldInput();
-        linkedinLoginPage.passFieldInput();
-        linkedinLoginPage.clickEnterButton();
-        linkedinLoginPage.waitPageNavigation(8);
-
-        linkedinHomePage = new LinkedinHomePage(wdriver);
-        linkedinHomePage.messageClick();
-        linkedinHomePage.waitPageNavigation(8);
+        driver.get(webUrl);
+        linkedinLoginPage = new LinkedinLoginPage(driver,wait);
     }
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod(){
-        wdriver.quit();
+        driver.quit();
     }
 }
