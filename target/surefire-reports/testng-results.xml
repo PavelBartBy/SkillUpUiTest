@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Test Suite" duration-ms="30463" started-at="2020-10-20T17:50:06Z" finished-at="2020-10-20T17:50:36Z">
+    <groups>
+    </groups>
+    <test name="SKGTest" duration-ms="30463" started-at="2020-10-20T17:50:06Z" finished-at="2020-10-20T17:50:36Z">
+      <class name="LinkedInSearchPageTest">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:LinkedInSearchPageTest@1a451d4d]" name="beforeMethod" is-config="true" duration-ms="4070" started-at="2020-10-20T20:50:32Z" finished-at="2020-10-20T20:50:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="linkedInSearchPageUse(java.lang.String)[pri:0, instance:LinkedInSearchPageTest@1a451d4d]" name="linkedInSearchPageUse" duration-ms="0" started-at="2020-10-20T20:50:36Z" data-provider="validDataProvider" finished-at="2020-10-20T20:50:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wildseller91@rambler.ru]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkedInSearchPageUse -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:LinkedInSearchPageTest@1a451d4d]" name="afterMethod" is-config="true" duration-ms="629" started-at="2020-10-20T20:50:36Z" finished-at="2020-10-20T20:50:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkedInSearchPageUse status=SUCCESS method=LinkedInSearchPageTest.linkedInSearchPageUse(java.lang.String)[pri:0, instance:LinkedInSearchPageTest@1a451d4d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- LinkedInSearchPageTest -->
+      <class name="LinkedInLoginTest">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:LinkedInLoginTest@7c729a55]" name="beforeMethod" is-config="true" duration-ms="5329" started-at="2020-10-20T20:50:06Z" finished-at="2020-10-20T20:50:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="emptyUserEmailFieldTest()[pri:0, instance:LinkedInLoginTest@7c729a55]" name="emptyUserEmailFieldTest" duration-ms="10471" started-at="2020-10-20T20:50:11Z" finished-at="2020-10-20T20:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyUserEmailFieldTest -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:LinkedInLoginTest@7c729a55]" name="afterMethod" is-config="true" duration-ms="609" started-at="2020-10-20T20:50:22Z" finished-at="2020-10-20T20:50:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=emptyUserEmailFieldTest status=SUCCESS method=LinkedInLoginTest.emptyUserEmailFieldTest()[pri:0, instance:LinkedInLoginTest@7c729a55] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:LinkedInLoginTest@7c729a55]" name="beforeMethod" is-config="true" duration-ms="4306" started-at="2020-10-20T20:50:22Z" finished-at="2020-10-20T20:50:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="linkedinLoginTest(java.lang.String)[pri:0, instance:LinkedInLoginTest@7c729a55]" name="linkedinLoginTest" duration-ms="4405" started-at="2020-10-20T20:50:27Z" data-provider="validDataProvider" finished-at="2020-10-20T20:50:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wildseller91@rambler.ru]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkedinLoginTest -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:LinkedInLoginTest@7c729a55]" name="afterMethod" is-config="true" duration-ms="636" started-at="2020-10-20T20:50:31Z" finished-at="2020-10-20T20:50:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkedinLoginTest status=SUCCESS method=LinkedInLoginTest.linkedinLoginTest(java.lang.String)[pri:0, instance:LinkedInLoginTest@7c729a55] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- LinkedInLoginTest -->
+    </test> <!-- SKGTest -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
