@@ -6,30 +6,42 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+
 
 public class BasePage {
 
+
     protected WebDriver driver;
+    protected WebDriverWait wait;
 
-    protected WebElement waitUntilElementVisible(WebElement element, int seconds){
-
-        WebDriverWait wait =new WebDriverWait(driver, seconds);
-        return wait.until(ExpectedConditions.visibilityOf(element));
-
+    protected String getCurrentUrl(){
+        return driver.getCurrentUrl();
     }
 
-    protected void assertElementVisible (WebElement element, int seconds, String message) {
+    protected String getCurrentTitle(){
+        return driver.getTitle();
+    }
+
+    protected boolean isUrlContains(String urlPart){
+        try {
+            return wait.until(ExpectedConditions.urlContains(urlPart));
+        } catch (TimeoutException e){
+            System.out.println("Requested url is missing-%"+ urlPart);
+            return false;
+        }
+    }
+
+    protected WebElement waitUntilElementVisible(WebElement element){
+
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    protected void assertElementVisible (WebElement element, String message) {
         try{
-            waitUntilElementVisible(element,seconds);
+            waitUntilElementVisible(element);
         } catch (TimeoutException exception){
             throw new AssertionError(message);
         }
     }
-
-    public void waitPageNavigation(int seconds){
-        driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
-        System.out.println("Done wait");
-    }
-
 }
