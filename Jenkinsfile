@@ -9,5 +9,5 @@ node {
        	dir("PavelBartBy/target") {
 	   sh "java -jar target/PBart_TestUIP-1.0-SNAPSHOT.jar"
        }
-		}
+	}
 }
