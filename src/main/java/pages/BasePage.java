@@ -3,11 +3,11 @@ package pages;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+
 
 public class BasePage {
 
@@ -23,7 +23,7 @@ public class BasePage {
         return driver.getTitle();
     }
 
-    protected boolean isUrlContains(String urlPart, int seconds){
+    protected boolean isUrlContains(String urlPart){
         try {
             return wait.until(ExpectedConditions.urlContains(urlPart));
         } catch (TimeoutException e){

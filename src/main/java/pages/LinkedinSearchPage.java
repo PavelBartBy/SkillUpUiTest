@@ -45,6 +45,6 @@ public class LinkedinSearchPage extends BasePage {
 
     public boolean isPageLoaded() {
 
-        return getCurrentTitle().contains("LinkedIn");
+        return getCurrentUrl().contains("search");
     }
 }

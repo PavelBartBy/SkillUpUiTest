@@ -54,10 +54,10 @@ public class LinkedinLoginPage extends BasePage{
         System.out.println("Done click");
     }
 
-    public void loginFieldInput() throws IOException {
+    public void loginFieldInput(String loginEmail) throws IOException {
         userElement.click();
         userElement.clear();
-        userElement.sendKeys(ConfigProperties.getProperty("login"));
+        userElement.sendKeys(loginEmail);
     }
 
     public void passFieldInput() throws IOException {
@@ -66,11 +66,16 @@ public class LinkedinLoginPage extends BasePage{
         passwordElement.sendKeys(ConfigProperties.getProperty("pass"));
     }
 
-    public LinkedinHomePage login() throws IOException {
-        this.loginFieldInput();
+    public <T> T login(String loginEmail) throws IOException {
+        this.loginFieldInput(loginEmail);
         this.passFieldInput();
         this.clickEnterButton();
-        return new LinkedinHomePage(driver, wait);
+        if (isUrlContains("/feed")){
+            return (T) new LinkedinHomePage(driver, wait);
+        } else {
+            return (T) this;
+        }
+
 
     }
 
@@ -79,8 +84,9 @@ public class LinkedinLoginPage extends BasePage{
     }
 
     public boolean isPageLoaded() throws IOException {
-        return getCurrentUrl().equals(ConfigProperties.getProperty("webUrl3"))
-                && getCurrentTitle().equals("Вход в LinkedIn, Войти | LinkedIn");
+        System.out.println(getCurrentUrl()+"  "+getCurrentTitle());
+        return getCurrentUrl().contains("login")
+                && getCurrentTitle().contains("LinkedIn");
 
 
     }
