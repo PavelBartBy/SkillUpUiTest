@@ -36,21 +36,8 @@ public class BaseTest {
         optionsChrome.addArguments("--start-maximized");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(optionsChrome);
-        logger.debug("Hello");
+        logger.debug("Test started");
 
-//        switch (browserName){
-//            case "Chrome":
-//                ChromeOptions optionsChrome = new ChromeOptions();
-//                optionsChrome.addArguments("--start-maximized");
-//                WebDriverManager.chromedriver().setup();
-//                driver = new ChromeDriver(optionsChrome);
-//                break;
-//            case "Firefox":
-//                WebDriverManager.firefoxdriver().setup();
-//                driver = new FirefoxDriver();
-//                driver.manage().window().maximize();
-//                break;
-//        }
         wait = new WebDriverWait(driver,timeToWaitSec);
         String webUrl = ConfigProperties.getProperty("webUrl3");
         driver.get(webUrl);
@@ -60,7 +47,7 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result){
 
-        String path = String.format("./screenshots/%s.png", result.getName());
+        String path = String.format("./screenshots/%s %d.png", result.getName(), System.currentTimeMillis());
         if(!result.isSuccess()){
             File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             try {

@@ -1,6 +1,13 @@
 package basicAlgorithm;
 
-public class DataTypeInfo { //method for studying memory for Data Type in Java. Assignment on first lecture
+public class DataTypeInfo {
+
+    /**
+     * Method for studying memory for Data Type in Java.
+     *
+     * @param dataType - tested data type
+     * @return - bytes in memory for data type
+     */
 
     public static int sizeOf(Class dataType) {
 

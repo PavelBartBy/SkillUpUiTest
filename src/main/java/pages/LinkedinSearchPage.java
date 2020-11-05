@@ -18,6 +18,9 @@ public class LinkedinSearchPage extends BasePage {
     @FindBy(xpath = ".//*[@data-test-search-result='JYMBII']")
     private List<WebElement> searchList;
 
+    @FindBy(xpath = ".//*[@data-control-name='all_filters']")
+    private WebElement allFiltersButton;
+
     @FindBy(css = "[type='like-icon']")
     private WebElement likeIcon;
 
@@ -29,6 +32,8 @@ public class LinkedinSearchPage extends BasePage {
     }
 
     public List<String> getSearchList(){
+
+        assertElementVisible(allFiltersButton, "AllFilters Button not visible");
 
         List<String> result = new ArrayList<>();
         driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL,Keys.END);

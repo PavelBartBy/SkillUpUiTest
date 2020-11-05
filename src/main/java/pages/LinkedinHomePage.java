@@ -12,22 +12,8 @@ public class LinkedinHomePage extends BasePage{
 
     @FindBy(css = "[role='combobox']")
     WebElement searchField;
-    @FindBy(id ="ember20")
-    WebElement homePageButton;
-    @FindBy(id ="ember23")
-    WebElement networkButton;
-    @FindBy(id ="ember26")
-    WebElement vacancyButton;
     @FindBy(id ="ember29")
     WebElement messageButton;
-    @FindBy(id ="ember32")
-    WebElement notificationButton;
-    @FindBy(id ="ember35")
-    WebElement profileButton;
-    @FindBy(id ="ember40")
-    WebElement linkedinAppsButton;
-    @FindBy(id ="ember45")
-    WebElement postAJobButton;
     @FindBy(xpath =".//*[@data-ember-action-3416='3416']")
     WebElement sharePostButton;
 

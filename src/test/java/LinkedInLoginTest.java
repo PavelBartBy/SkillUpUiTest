@@ -30,15 +30,13 @@ public class LinkedInLoginTest extends BaseTest{
      * - verified that Home Page is loaded
      *
      * @param loginEmail - Email used as login
-     * @throws IOException - exception for input/output problems
      */
     @Test(dataProvider ="validDataProvider")
-    public void linkedinLoginTest(String loginEmail) throws IOException {
+    public void linkedinLoginTest(String loginEmail) {
 
         Assert.assertTrue(linkedinLoginPage.isPageLoaded(), "Login Page not loaded");
         LinkedinHomePage linkedinHomePage = linkedinLoginPage.login(loginEmail);
         Assert.assertTrue(linkedinHomePage.isPageLoaded(), "Home Page not loaded");
-        System.out.println("sss");
     }
 
     /***
@@ -56,11 +54,9 @@ public class LinkedInLoginTest extends BaseTest{
      *
      * Expected Result:
      * - test finished on Login Page after timeout
-     *
-     * @throws IOException - exception for input/output problems
      */
     @Test()
-    public void emptyUserEmailFieldTest() throws IOException {
+    public void emptyUserEmailFieldTest() {
         Assert.assertTrue(linkedinLoginPage.isPageLoaded(), "Login Page not loaded");
         Object page = linkedinLoginPage.login("");
         if (page instanceof LinkedinLoginPage){

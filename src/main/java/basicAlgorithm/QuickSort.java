@@ -12,9 +12,11 @@ public class QuickSort {
         if (low>high){
             return;
         }
+
         //choose mid
         int middle = low + (high-low)/2;
         int opora = array[middle];
+
         //break array and change places
         int i = low;
         int j = high;
@@ -33,6 +35,7 @@ public class QuickSort {
                 j--;
             }
         }
+
         //recursion for sort parts
         if (low<j){
             quickSort(array,low,j);

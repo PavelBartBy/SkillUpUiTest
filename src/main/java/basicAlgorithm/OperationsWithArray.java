@@ -64,8 +64,7 @@ public class OperationsWithArray {
         System.out.println("Max Element is " + max);
         int min = minElement(x);
         System.out.println("Min Element is " + min);
-        List<Integer> lowelements = new ArrayList<Integer>();
-        lowelements = lowElements(x);
+        List<Integer> lowelements = lowElements(x);
         System.out.println("Elements which less than the arithmetic mean " + lowelements);
 
         System.out.println("Array memory on system: about "+ x.length*DataTypeInfo.sizeOf(int.class)+" byte");

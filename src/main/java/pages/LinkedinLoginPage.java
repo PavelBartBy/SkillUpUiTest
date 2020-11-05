@@ -49,24 +49,24 @@ public class LinkedinLoginPage extends BasePage{
         assertElementVisible(userElement, "Web element not visible ");
     }
 
-    public void googleSignInClick(){
-        googleSignInButton.click();
-        System.out.println("Done click");
-    }
-
-    public void loginFieldInput(String loginEmail) throws IOException {
+    public void loginFieldInput(String loginEmail) {
         userElement.click();
         userElement.clear();
         userElement.sendKeys(loginEmail);
     }
 
-    public void passFieldInput() throws IOException {
+    public void passFieldInput() {
         passwordElement.click();
         passwordElement.clear();
-        passwordElement.sendKeys(ConfigProperties.getProperty("pass"));
+        try {
+            passwordElement.sendKeys(ConfigProperties.getProperty("pass"));
+        } catch (IOException e){
+            System.out.println("Input parameter from Properties - failed");
+            logger.debug("Input parameter from Properties - failed");
+        }
     }
 
-    public <T> T login(String loginEmail) throws IOException {
+    public <T> T login(String loginEmail) {
         this.loginFieldInput(loginEmail);
         this.passFieldInput();
         this.clickEnterButton();
@@ -83,13 +83,11 @@ public class LinkedinLoginPage extends BasePage{
         enterButtonElement.click();
     }
 
-    public boolean isPageLoaded() throws IOException {
+    public boolean isPageLoaded() {
         System.out.println(getCurrentUrl()+"  "+getCurrentTitle());
         return getCurrentUrl().contains("login")
                 && getCurrentTitle().contains("LinkedIn");
 
 
     }
-
-
 }
