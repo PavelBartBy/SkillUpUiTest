@@ -1,5 +1,8 @@
 package basicAlgorithm;
 
+/**
+ * Create abstract class of Animal
+ */
 public abstract class Animal {
     private String name;
     private String color;

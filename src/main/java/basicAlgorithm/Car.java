@@ -1,5 +1,8 @@
 package basicAlgorithm;
 
+/**
+ * Create of training class of Car
+ */
 public class Car {
     String manufacture;
     String model;
